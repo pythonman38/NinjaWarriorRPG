@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class Character : MonoBehaviour
 {
     [Header("Collision Info")]
     public Transform attackCheck;
@@ -23,7 +23,7 @@ public class Entity : MonoBehaviour
     #region Components
     public Animator animator { get; private set; }
     public Rigidbody2D rb { get; private set; }
-    public EntityVFX vfx { get; private set; }
+    public CharacterVFX vfx { get; private set; }
     #endregion
 
     protected virtual void Awake()
@@ -33,7 +33,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        vfx = GetComponent<EntityVFX>();
+        vfx = GetComponent<CharacterVFX>();
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }

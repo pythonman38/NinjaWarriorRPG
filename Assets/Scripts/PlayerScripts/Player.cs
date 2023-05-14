@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Player : Entity
+public class Player : Character
 {
     [Header("Attack Details")]
     public Vector2[] attackMovement;
@@ -12,8 +12,6 @@ public class Player : Entity
     public float jumpForce;
 
     [Header("Dash Info")]
-    [SerializeField] private float dashCooldown;
-    private float dashUsageTimer;
     public float dashSpeed;
     public float dashDuration;
 
@@ -80,10 +78,8 @@ public class Player : Entity
     {
         if (IsWallDetected()) return;
 
-        dashUsageTimer -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.LeftShift) && dashUsageTimer < 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill())
         {
-            dashUsageTimer = dashCooldown;
             dashDirection = Input.GetAxisRaw("Horizontal");
             if (dashDirection == 0) dashDirection = facingDirection;
 

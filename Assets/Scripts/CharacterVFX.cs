@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EntityVFX : MonoBehaviour
+public class CharacterVFX : MonoBehaviour
 {
     private SpriteRenderer sr;
 

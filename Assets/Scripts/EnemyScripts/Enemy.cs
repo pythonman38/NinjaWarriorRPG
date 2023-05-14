@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : Entity
+public class Enemy : Character
 {
     [SerializeField] protected LayerMask whatIsPlayer;
 
